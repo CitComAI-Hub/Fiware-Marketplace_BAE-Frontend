@@ -257,3 +257,118 @@ textarea:-webkit-autofill {
 textarea:-webkit-autofill::first-line {
   color: inherit;
 }
+
+/* ---------- Modern design tokens & utilities ---------- */
+:root {
+  --ui-radius: 12px;
+  --ui-radius-sm: 8px;
+  --ui-shadow-1: 0 6px 18px rgba(13, 23, 42, 0.08);
+  --ui-shadow-2: 0 12px 34px rgba(13, 23, 42, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --muted: #6b7280;
+  --gap: 1rem;
+}
+
+/* Container to centralize content with generous max width */
+.app-content,
+.content,
+main {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: var(--ui-radius-sm);
+  font-weight: 600;
+  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, rgb(var(--theme-primary-50)) 0%, rgb(var(--theme-primary-100)) 100%);
+  color: white;
+  box-shadow: var(--ui-shadow-1);
+}
+
+.btn-primary:hover {
+  box-shadow: var(--ui-shadow-2);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: inherit;
+}
+
+/* Cards */
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  border-radius: var(--ui-radius);
+  box-shadow: var(--ui-shadow-1);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.card-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Improve form inputs */
+input,
+textarea,
+select {
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  padding: 0.6rem 0.8rem;
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 8px 20px rgba(38, 103, 255, 0.08);
+  border-color: rgba(38, 103, 255, 0.9);
+}
+
+/* Subtle motion for interactive elements */
+.animate-subtle {
+  transition: transform .18s cubic-bezier(.2, .9, .2, 1), opacity .12s ease;
+}
+
+.hover-rise:hover {
+  transform: translateY(-6px);
+}
+
+/* Improve footer spacing */
+footer {
+  padding: 3rem 1rem;
+}
+
+/* Accessibility helpers */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Keep existing theme imports and utilities working */
