@@ -47,7 +47,7 @@ This file must define a selector for your theme (`body.theme-galaxy`) and overri
 body.theme-galaxy {
   /* Define primary and secondary colors for the Galaxy theme. */
   /* These variables will be used by TailwindCSS and custom components. */
-  
+
   /* Example HEX: #8A2BE2 */
   --theme-primary-50: 138 43 226;
   /* Example HEX: #4B0082 */
@@ -138,7 +138,7 @@ export const AVAILABLE_THEMES: ThemeConfig[] = [
 ### 5. Add Theme Assets
 Finally, place all your theme-specific assets (logo, images, etc.) in the corresponding folder under `src/assets/themes/`.
 
-``` 
+```
 src/assets/themes/galaxy/
   - galaxy-logo.svg
   - stars-background.png
@@ -170,7 +170,7 @@ export class HeaderComponent {
 ```
 
 ## Translations (i18n)
-The theming system is integrated with `ngx-translate` for internationalization. Notice that link labels in the theme 
+The theming system is integrated with `ngx-translate` for internationalization. Notice that link labels in the theme
 configuration file are translation keys (e.g., ). `HEADER._home`
 
 When creating a new theme or adding new links, you must add these keys to the language JSON files.
@@ -188,5 +188,23 @@ When creating a new theme or adding new links, you must add these keys to the la
 }
 ```
 Ensure that any new keys are added to the JSON files for all supported languages (e.g., , `fr-galaxy.json`). `es-galaxy.json`
+
+## Running with Docker
+
+If you do not want to install Node/npm locally, you can run the frontend with Docker and `docker-compose`.
+
+### Development mode
+
+This starts Angular in dev-server mode with live reload:
+
+```bash
+docker compose up --build
+```
+
+Then open `http://localhost:4200`.
+
+### Production-like mode
+
+The repository also includes a multi-stage `Dockerfile` that can build a static image with Nginx. If you want that variant, build the `runtime` target and run it on port 80.
 
 

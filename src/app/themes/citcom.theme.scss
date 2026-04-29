@@ -1,0 +1,22 @@
+body.theme-citcom {
+  --theme-primary-50: 38 132 255;
+  --theme-primary-100: 13 71 161;
+
+  --theme-secondary-50: 224 242 255;
+  --theme-secondary-100: 30 64 175;
+  --theme-secondary-200: 17 24 39;
+  --theme-secondary-300: 37 99 235;
+  --theme-secondary-400: 29 78 216;
+  --theme-secondary-500: 15 23 42;
+
+  --theme-tertiary-50: 15 23 42;
+  --theme-tertiary-100: 30 41 59;
+
+  --theme-header-v2-top-bg: #081733;
+  --theme-header-v2-glass-bg: rgba(8, 23, 51, 0.58);
+  --theme-header-v2-outline-border: #2667ff;
+  --theme-header-v2-outline-hover-bg: rgba(38, 103, 255, 0.92);
+  --theme-header-v2-outline-hover-text: #ffffff;
+  --theme-header-v2-solid-bg: #2667ff;
+  --theme-header-v2-solid-hover-bg: rgba(38, 103, 255, 0.92);
+}

@@ -72,7 +72,7 @@ export const environment = {
   DATA_SPACE_ENABLED: false,
   DFT_CATALOG_ID: '',
   MAX_FILE_SIZE: 3145728,
-  providerThemeName: 'default',
+  providerThemeName: 'CITCOM',
   quoteApi: 'http://localhost:8080/quoteManagement',
   quoteEndpoints: {
     createQuote: '/createQuote',
