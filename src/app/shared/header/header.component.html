@@ -15,19 +15,16 @@
         }
       </a>
 
-      <div class="hidden lg:flex items-center justify-center flex-1">
-        <ul class="flex items-center gap-12">
+      <div class="hidden lg:flex items-center gap-8 ml-auto">
+        <ul class="flex items-center gap-10">
           <ng-container [ngTemplateOutlet]="navLinksTemplate" [ngTemplateOutletContext]="{ mobile: false }">
           </ng-container>
         </ul>
+        <ng-container [ngTemplateOutlet]="headerActionsTemplate" [ngTemplateOutletContext]="{ mobile: false }">
+        </ng-container>
       </div>
 
-      <div class="flex items-center gap-3">
-        <div class="hidden lg:flex items-center gap-3">
-          <ng-container [ngTemplateOutlet]="headerActionsTemplate" [ngTemplateOutletContext]="{ mobile: false }">
-          </ng-container>
-        </div>
-
+      <div class="flex items-center gap-3 lg:hidden">
         <button #navbarbutton type="button"
           class="inline-flex lg:hidden h-[44px] w-[44px] items-center justify-center rounded-[10px] text-white/90 hover:text-white hover:bg-white/10 transition"
           aria-controls="navbar-dropdown" [attr.aria-expanded]="isNavBarOpen"

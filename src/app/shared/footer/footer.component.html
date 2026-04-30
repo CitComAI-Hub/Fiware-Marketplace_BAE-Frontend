@@ -13,14 +13,6 @@
             DOME — Europe's trusted marketplace for verified cloud, edge &amp; AI services.
           </p>
 
-          @if (socialLinks.length) {
-          <div class="mt-8 flex items-center gap-6">
-            @for (social of socialLinks; track social.url) {
-            <fa-icon (click)="openNewTab(social.url!)" size="lg"
-              class="cursor-pointer opacity-90 hover:opacity-100 transition" [icon]="social.icon"></fa-icon>
-            }
-          </div>
-          }
         </div>
 
         <div class="md:col-span-7">
@@ -72,40 +64,47 @@
   </div>
 </footer>
 } @else {
-<div>
-  <div
-    class="flex h-[25px] justify-center md:justify-between items-center bg-white border-t border-gray-200 shadow dark:bg-tertiary-50 dark:border-gray-600 p-4">
-    <div class="hidden md:flex justify-start text-gray-500 dark:text-gray-400">
-      @for (social of socialLinks; track social.url) {
-      <fa-icon (click)="openNewTab(social.url!)" [ngClass]="{ 'mr-4': !$last }" class="cursor-pointer"
-        [icon]="social.icon"></fa-icon>
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand-block citcom-footer-block">
+      <img src="assets/themes/citcom-ai/logo-citcom.png" alt="CitCom" class="footer-logo logo-white" />
+      <div class="eu-note">
+        <img src="assets/themes/citcom-ai/eu-co-funded.png" alt="Co-funded by the European Union"
+          class="eu-cofunded-img" />
+        <p>
+          Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of
+          the European Union. Neither the European Union nor the granting authority can be held responsible for them.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-right-column">
+      <nav class="footer-links citcom-footer-links" aria-label="Footer links">
+        <a (click)="goToRoute('/dashboard')" class="cursor-pointer">Home</a>
+        <a (click)="goToRoute('/search')" class="cursor-pointer">Services</a>
+        <a (click)="goToRoute('/catalogues')" class="cursor-pointer">Providers catalog</a>
+      </nav>
+
+      @if (socialLinks.length) {
+      <nav class="footer-social-links" aria-label="Social links">
+        @for (social of socialLinks; track social.url) {
+        <a (click)="openNewTab(social.url)" class="footer-social-link cursor-pointer" [attr.aria-label]="social.label"
+          rel="noopener noreferrer">
+          <fa-icon [icon]="social.icon"></fa-icon>
+        </a>
+        }
+      </nav>
       }
     </div>
 
-    <ul class="flex flex-wrap items-center text-sm font-medium text-gray-500 dark:text-gray-400">
-      @if (checkLogged) {
-      <li>
-        <button (click)="feedback = !feedback; $event.stopPropagation()" class="mr-4 hover:underline md:mr-6">
-          Feedback
-        </button>
-      </li>
-      }
-      @for (link of defaultFooterLinks; track link.label + (link.url || '')) {
-      <li>
-        @if (!link.isRouterLink) {
-        <a [href]="link.url" target="_blank" rel="noopener noreferrer" class="mr-4 hover:underline md:mr-6">
-          {{ link.label | translate }}
-        </a>
-        } @else {
-        <a (click)="goToRoute(link.url!)" class="mr-4 hover:underline md:mr-6 cursor-pointer">
-          {{ link.label | translate }}
-        </a>
-        }
-      </li>
-      }
-    </ul>
   </div>
-</div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="copyright">All rights reserved. 2026</p>
+    </div>
+  </div>
+</footer>
 }
 
 @if (feedback) {

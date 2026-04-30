@@ -1,10 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  faLinkedin,
-  faXTwitter,
-  faYoutube,
-} from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import * as moment from 'moment';
 import { Subject, takeUntil } from 'rxjs';
 import { LoginInfo } from 'src/app/models/interfaces';
@@ -20,16 +16,16 @@ import { NavHeaderLink, NavLink } from '../../themes';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent implements OnInit, OnDestroy {
-  protected readonly faLinkedin = faLinkedin;
-  protected readonly faYoutube = faYoutube;
-  protected readonly faXTwitter = faXTwitter;
   private unSub = new Subject();
+
+  protected readonly faGithub = faGithub;
+  protected readonly faLinkedin = faLinkedin;
 
   checkLogged: boolean = false;
   feedback: boolean = false;
   isDomeTheme: boolean = false;
 
-  socialLinks: { icon: any; url: string }[] = [];
+  socialLinks: { icon: any; url: string; label: string }[] = [];
   footerLinks: NavHeaderLink[] = [];
   defaultFooterLinks: NavLink[] = [];
   columns: number;
@@ -74,25 +70,21 @@ export class FooterComponent implements OnInit, OnDestroy {
         this.defaultFooterLinks = this.footerLinks.flatMap((linkGroup) => linkGroup.navLinks || []);
         this.columns = theme?.links?.footerLinksColsNumber || 0;
 
-        this.socialLinks = [];
-
-        if (theme?.links?.linkedin) {
-          this.socialLinks.push({
-            url: theme.links.linkedin,
-            icon: this.faLinkedin,
-          });
-        }
-        if (theme?.links?.twitter) {
-          this.socialLinks.push({
-            url: theme.links.twitter,
-            icon: this.faXTwitter,
-          });
-        }
-        if (theme?.links?.youtube) {
-          this.socialLinks.push({
-            url: theme.links.youtube,
-            icon: this.faYoutube,
-          });
+        if ((theme?.name || '').toUpperCase() === 'CITCOM') {
+          this.socialLinks = [
+            {
+              label: 'LinkedIn',
+              url: 'https://www.linkedin.com/company/tef-citcom-smart-cities-and-communities/',
+              icon: this.faLinkedin,
+            },
+            {
+              label: 'GitHub',
+              url: 'https://citcomai-hub.github.io/',
+              icon: this.faGithub,
+            },
+          ];
+        } else {
+          this.socialLinks = [];
         }
       });
   }
@@ -102,7 +94,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   }
 
   openNewTab(path: string) {
-    window.open(path, '_blank');
+    window.open(path, '_blank', 'noopener,noreferrer');
   }
 
   ngOnDestroy() {

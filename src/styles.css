@@ -72,9 +72,9 @@ ngx-file-drop .ngx-file-drop__drop-zone {
 }
 
 /* Global overrides to align with onboarding look */
-nav,
-.main-header,
-header {
+bae-header nav,
+bae-header .main-header,
+bae-header header {
   background: #ffffff;
   color: var(--app-ink);
   border-bottom: 1px solid var(--app-border);
