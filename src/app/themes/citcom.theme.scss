@@ -1,22 +1,29 @@
 body.theme-citcom {
-  --theme-primary-50: 38 132 255;
-  --theme-primary-100: 13 71 161;
+  /* Adopt onboarding palette and tokens */
+  --theme-font-body: 'Barlow', 'Segoe UI', sans-serif;
 
-  --theme-secondary-50: 224 242 255;
-  --theme-secondary-100: 30 64 175;
-  --theme-secondary-200: 17 24 39;
-  --theme-secondary-300: 37 99 235;
-  --theme-secondary-400: 29 78 216;
-  --theme-secondary-500: 15 23 42;
+  /* Primary (main brand color) - dark neutral used by onboarding */
+  --theme-primary-50: 35 37 40;
+  /* rgb for #232528 */
+  --theme-primary-100: 35 37 40;
 
-  --theme-tertiary-50: 15 23 42;
-  --theme-tertiary-100: 30 41 59;
+  /* Accent / highlight (yellow/gold) */
+  --theme-secondary-50: 242 182 50;
+  /* rgb for #f2b632 */
+  --theme-secondary-100: 242 182 50;
 
-  --theme-header-v2-top-bg: #081733;
-  --theme-header-v2-glass-bg: rgba(8, 23, 51, 0.58);
-  --theme-header-v2-outline-border: #2667ff;
-  --theme-header-v2-outline-hover-bg: rgba(38, 103, 255, 0.92);
+  /* Background / surface tones */
+  --theme-tertiary-50: 243 244 246;
+  /* light background */
+  --theme-tertiary-100: 28 34 40;
+  /* dark surface approx */
+
+  /* Header / UI chrome */
+  --theme-header-v2-top-bg: #232528;
+  --theme-header-v2-glass-bg: rgba(35, 37, 40, 0.6);
+  --theme-header-v2-outline-border: #f2b632;
+  --theme-header-v2-outline-hover-bg: rgba(242, 182, 50, 0.95);
   --theme-header-v2-outline-hover-text: #ffffff;
-  --theme-header-v2-solid-bg: #2667ff;
-  --theme-header-v2-solid-hover-bg: rgba(38, 103, 255, 0.92);
+  --theme-header-v2-solid-bg: #232528;
+  --theme-header-v2-solid-hover-bg: rgba(35, 37, 40, 0.92);
 }

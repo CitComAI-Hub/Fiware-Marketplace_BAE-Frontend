@@ -193,6 +193,10 @@ export class HeaderComponent implements OnInit, AfterViewInit, DoCheck, OnDestro
     this.destroy$.complete();
   }
 
+  get isCitcomTheme(): boolean {
+    return this.providerThemeName === 'CITCOM' || this.currentTheme?.name === 'CITCOM';
+  }
+
 
   private resolveLinksEnv(links: NavLink[]): NavLink[] {
     const walk = (arr: NavLink[]): NavLink[] =>

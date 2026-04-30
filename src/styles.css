@@ -14,12 +14,12 @@
 
 @layer base {
   html {
-    font-family: "Blinker", system-ui, sans-serif;
+    font-family: "Barlow", "Segoe UI", sans-serif;
   }
 }
 
-.blinker {
-  font-family: "Blinker", system-ui, sans-serif;
+.barlow {
+  font-family: "Barlow", "Segoe UI", sans-serif;
 }
 
 /* El resto de tus estilos... */
@@ -28,6 +28,33 @@
   --blockquote-border-color: #ccc;
   --blockquote-bg-color: #dde6f6;
   --blockquote-text-color: black;
+}
+
+/* Onboarding / Citcom visual tokens (aliases) */
+:root {
+  --app-white: #ffffff;
+  --app-primary: #232528;
+  --app-primary-rgb: 35, 37, 40;
+  --app-accent: #f2b632;
+  --app-bg: #f3f4f6;
+  --app-surface: var(--app-white);
+  --app-surface-soft: #eceff2;
+  --app-surface-soft-strong: #e6e9ee;
+  --app-ink: #232528;
+  --app-ink-muted: #5e6571;
+  --app-border: #d4d9e0;
+  --app-border-subtle: rgba(0, 0, 0, 0.08);
+  --app-text-on-dark: #ffffff;
+  --app-button-radius: 10px;
+  --app-shadow: 0 18px 35px rgba(20, 23, 28, 0.12);
+  --app-shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* Keep compatibility with theme variables used by Tailwind config */
+  --theme-primary-50: var(--app-primary-rgb);
+  --theme-primary-100: var(--app-primary-rgb);
+  --theme-secondary-50: 242 182 50;
+  /* gold */
+  --theme-secondary-100: 242 182 50;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -42,6 +69,108 @@
 ngx-file-drop .ngx-file-drop__drop-zone {
   border-color: rgb(var(--theme-primary-100)) !important;
   /* your theme color */
+}
+
+/* Global overrides to align with onboarding look */
+nav,
+.main-header,
+header {
+  background: #ffffff;
+  color: var(--app-ink);
+  border-bottom: 1px solid var(--app-border);
+}
+
+.hero-title,
+h1,
+.title {
+  font-family: "Barlow", "Segoe UI", sans-serif;
+  color: rgb(var(--theme-secondary-50));
+}
+
+button,
+.btn,
+.primary-action {
+  background-color: rgb(var(--theme-primary-100));
+  color: var(--app-text-on-dark);
+}
+
+/* Cards and service cards */
+.card,
+.service-card,
+bae-off-card,
+.surface-card {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  box-shadow: var(--app-shadow);
+  border-radius: 18px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.card:hover,
+.service-card:hover,
+.surface-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 40px rgba(20, 23, 28, 0.12);
+}
+
+/* Search input / dashboard search */
+#dashboardSearchBar,
+.dd-marketplace-search,
+input[type="search"] {
+  border: 1px solid var(--app-border);
+  box-shadow: var(--app-shadow-soft);
+  border-radius: 10px;
+  padding: 0.9rem 1.2rem;
+}
+
+#dashboardSearchButton,
+button[type="submit"] {
+  background: transparent;
+  border: 1px solid rgba(var(--theme-secondary-50), 0.12);
+  color: rgb(var(--theme-primary-100));
+  border-left: none;
+}
+
+/* Footer look similar to onboarding */
+bae-footer,
+.site-footer,
+footer {
+  background: linear-gradient(120deg, #1e232c 0%, #1a2029 52%, #212732 100%);
+  color: var(--app-white);
+}
+
+/* Make primary buttons rounded and elevated */
+.bg-primary-100,
+.btn-primary,
+.primary-action,
+button.bg-primary-100 {
+  background-color: rgb(var(--theme-primary-100)) !important;
+  color: var(--app-text-on-dark) !important;
+  border-radius: var(--app-button-radius) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Small utility for hero CTA underline style like onboarding */
+.primary-underline {
+  position: relative;
+}
+
+.primary-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 40px;
+  height: 4px;
+  background: var(--app-accent);
+  border-radius: 4px;
+}
+
+.secondary-action,
+.btn-outline {
+  background: var(--app-surface-soft);
+  color: var(--app-ink);
+  border: 1px solid var(--app-border);
 }
 
 /* Default styles for Markdown elements */

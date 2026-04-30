@@ -1,11 +1,17 @@
-<nav class="sticky top-0 z-50 w-full text-white transition-all duration-300"
+<nav class="sticky top-0 z-50 w-full text-white transition-all duration-300" [class.header-light]="isCitcomTheme"
   [class.header-top]="!scrolled && !isNavBarOpen" [class.header-glass]="scrolled || isNavBarOpen">
   <div class="mx-auto max-w-[1180px] px-6 sm:px-10">
     <div class="flex h-[88px] items-center justify-between">
-      <a (click)="goTo('/dashboard')" class="flex items-center gap-4 cursor-pointer select-none">
+      <a (click)="goTo('/dashboard')" class="flex items-center gap-3 cursor-pointer select-none">
         @if (currentTheme?.assets?.logoUrl) {
-        <img [src]="currentTheme?.assets?.logoUrl" class="h-[51.7px] w-auto"
+        <img [src]="currentTheme?.assets?.logoUrl" class="h-[51.7px] w-auto" [class.brand-logo]="isCitcomTheme"
           alt="{{ currentTheme?.displayName }} Logo" />
+        }
+        @if (isCitcomTheme) {
+        <div class="brand-text-onboarding">
+          <strong>Marketplace</strong>
+          <span>Data Space</span>
+        </div>
         }
       </a>
 
@@ -196,7 +202,7 @@
     @if (!mobile) {
     <li class="relative">
       <button type="button"
-        class="inline-flex items-center gap-2 text-[15px] font-semibold text-white/90 hover:text-white transition-colors"
+        class="header-nav-link inline-flex items-center gap-2 text-[15px] font-semibold text-white/90 hover:text-white transition-colors"
         [id]="link.id" [attr.data-dropdown-toggle]="link.id + 'Menu'"
         [attr.data-cy]="(link.id === 'searchDropdown' || link.id === 'dropdown-marketplace') ? 'browse' : null">
         {{ link.label | translate }}
@@ -243,13 +249,13 @@
     <li>
       @if (!mobile) {
       @if (!link.isRouterLink) {
-      <a class="text-[15px] font-semibold text-white/90 hover:text-white transition-colors" target="_blank"
-        [href]="link.url">
+      <a class="header-nav-link text-[15px] font-semibold text-white/90 hover:text-white transition-colors"
+        target="_blank" [href]="link.url">
         {{ link.label | translate }}
       </a>
       } @else {
-      <a class="text-[15px] font-semibold text-white/90 hover:text-white transition-colors" [routerLink]="link.url"
-        [attr.data-cy]="link.url === '/about' ? 'about' : null">
+      <a class="header-nav-link text-[15px] font-semibold text-white/90 hover:text-white transition-colors"
+        [routerLink]="link.url" [attr.data-cy]="link.url === '/about' ? 'about' : null">
         {{ link.label | translate }}
       </a>
       }
@@ -291,7 +297,7 @@
     </button>
     } @else {
     <button data-cy="login" id="login" type="button"
-      class="ml-1 inline-flex h-[44px] items-center justify-center rounded-[10px] header-solid-btn px-6 text-[15px] font-semibold text-white transition"
+      class="header-login-btn ml-1 inline-flex h-[44px] items-center justify-center rounded-[10px] header-solid-btn px-6 text-[15px] font-semibold text-white transition"
       (click)="onLoginClick()">
       Login
     </button>
