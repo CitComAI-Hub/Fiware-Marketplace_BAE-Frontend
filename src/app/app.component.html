@@ -1,11 +1,11 @@
 <bae-header></bae-header>
 
-<div class="app-content">
-  <main class="bg-no-repeat bg-right">
+<div class="app-content min-h-screen flex flex-col">
+  <main class="bg-no-repeat bg-right flex-1">
     <router-outlet></router-outlet>
   </main>
 
-  <bae-footer class="w-full z-30 bottom-0 start-0"></bae-footer>
+  <bae-footer class="w-full z-30 mt-auto"></bae-footer>
 </div>
 
 @if (providerThemeName === "DOME") {
